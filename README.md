@@ -1,4 +1,4 @@
-# README
+# SOLAR POWER SPECIFICATION SYSTEM
 
 ### Version 0.1.2
 * Changed column type of user_type in users model.
