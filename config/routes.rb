@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :packages
   resources :types
   #resources :user_types
   resources :users
