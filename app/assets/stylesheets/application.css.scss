@@ -10,9 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+//$navbar-default-bg: #8db600;
+$navbar-default-bg: rgba(91, 194, 54, 0.75);
+$navbar-default-link-color: #ffffff;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "*";

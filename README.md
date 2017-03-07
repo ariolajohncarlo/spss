@@ -1,5 +1,11 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 0.2.1
+* Added navbar
+* Added gems in project:
+ * better_errors
+ * binding_of_caller
+
 ### Version 0.2.0
 * Added Packages Scaffold, and package_component model
 * Modified associations of the following models:
