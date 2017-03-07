@@ -1,5 +1,8 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 0.3.0
+* Improved User Interface
+
 ### Version 0.2.1
 * Added navbar
 * Added gems in project:

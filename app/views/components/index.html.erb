@@ -30,14 +30,20 @@
         <td><%= component.cost %></td>
         <td><%= component.retail_price %></td>
         <td>
-          <%= link_to 'Show', component %>
-          <%= link_to 'Edit', edit_component_path(component) %>
-          <%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <button onclick=window.location.href='/components/<%= component.id%>' class="btn btn-info btn-xs">Show</button>
+          <button onclick=window.location.href='/components/<%= component.id%>/edit' class="btn btn-warning btn-xs">Edit</button>
+          <button onclick=window.location.href='/components/<%= component.id%>/destroy' class="btn btn-danger btn-xs">Destroy</button>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
+
+<!--
+<input type="button" class="btn btn-info btn-xs" value="Show">
+<input type="button" class="btn btn-warning btn-xs" value="Edit">
+<input type="button" class="btn btn-danger btn-xs" value="Delete">
+-->
 
 <%= link_to 'New Component', new_component_path %>

@@ -1,7 +1,11 @@
-.divcontent {
-  padding-left: 20pt;
+body {
+  background: #d6d6d6;
 }
 
-.newbold {
-  text-decoration-color: white;
+div.divcontent {
+  background: #ffffff;
+  margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }

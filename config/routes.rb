@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+#  get 'components/:id' => 'components#show'
+  get 'components/:id/destroy' => 'components#destroy'
+  get 'packages/:id/destroy' => 'components#destroy'
+  get 'suppliers/:id/destroy' => 'components#destroy'
+  get 'users/:id/destroy' => 'components#destroy'
   resources :packages
   resources :types
-  #resources :user_types
   resources :users
   resources :components
   resources :suppliers
