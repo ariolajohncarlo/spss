@@ -13,8 +13,11 @@
  */
 
 //$navbar-default-bg: #8db600;
-$navbar-default-bg: rgba(91, 194, 54, 0.75);
+$navbar-default-bg: #5bc236;
+//$navbar-default-bg: rgba(91, 194, 54, 0.75);
 $navbar-default-link-color: #ffffff;
+//$navbar-default-brand-hover-bg: rgba(80, 173, 46, 0.75);
+$navbar-default-brand-hover-bg: #50ad2e;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
