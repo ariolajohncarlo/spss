@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :component_packages
 #  get 'components/:id' => 'components#show'
   get 'components/:id/destroy' => 'components#destroy'
   get 'packages/:id/destroy' => 'components#destroy'

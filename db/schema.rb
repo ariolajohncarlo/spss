@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306144146) do
+ActiveRecord::Schema.define(version: 20170310152835) do
 
   create_table "component_packages", force: :cascade do |t|
-    t.integer  "package_id"
     t.integer  "component_id"
+    t.integer  "package_id"
+    t.integer  "quantity"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "quantity"
   end
 
   create_table "components", force: :cascade do |t|

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Component:</strong>
+  <%= @component_package.component_id %>
+</p>
+
+<p>
+  <strong>Package:</strong>
+  <%= @component_package.package_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @component_package.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_component_package_path(@component_package) %> |
+<%= link_to 'Back', component_packages_path %>

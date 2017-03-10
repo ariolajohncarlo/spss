@@ -1,4 +1,4 @@
 class ComponentPackage < ApplicationRecord
-  belongs_to :package
-  belongs_to :component
+	belongs_to :component
+	belongs_to :package
 end

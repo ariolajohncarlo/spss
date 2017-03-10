@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Component Packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Package</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @component_packages.each do |component_package| %>
+      <tr>
+        <td><%= component_package.component_id %></td>
+        <td><%= component_package.package_id %></td>
+        <td><%= component_package.quantity %></td>
+        <td><%= link_to 'Show', component_package %></td>
+        <td><%= link_to 'Edit', edit_component_package_path(component_package) %></td>
+        <td><%= link_to 'Destroy', component_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Component Package', new_component_package_path %>
