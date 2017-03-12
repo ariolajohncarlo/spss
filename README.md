@@ -1,5 +1,9 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 0.3.1
+* Improved Interface for New and Edit for Suppliers
+* Added instructions in seed file.
+
 ### Version 0.3.0
 * Improved User Interface
 
