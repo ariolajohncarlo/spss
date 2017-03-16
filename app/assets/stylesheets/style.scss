@@ -1,5 +1,5 @@
 body {
-  background: #black;
+  background: #d6d6d6;
 }
 
 div.divcontent {
@@ -11,5 +11,17 @@ div.divcontent {
 }
 
 td.currency {
-  text-align: right
+  text-align: right;
+}
+
+td.action_area{
+  text-align: right;
+}
+
+fieldset {
+  margin-top: 50px;
+}
+
+h1 {
+  text-align: center;
 }

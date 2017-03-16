@@ -20,14 +20,10 @@
         <td><%= supplier.company_name %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.contact_number %></td>
-        <td>
-          <%= link_to 'Show', supplier %>
-          <%= link_to 'Edit', edit_supplier_path(supplier) %>
-          <%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %>
-		<button onclick=window.location.href='/suppliers/<%= supplier.id%>' class="btn btn-info btn-xs">Show</button>
+        <td class="action_area">
+		  <button onclick=window.location.href='/suppliers/<%= supplier.id%>' class="btn btn-info btn-xs">Show</button>
           <button onclick=window.location.href='/suppliers/<%= supplier.id%>/edit' class="btn btn-warning btn-xs">Edit</button>
           <button onclick=window.location.href='/suppliers/<%= supplier.id%>/destroy' class="btn btn-danger btn-xs">Destroy</button>
-
         </td>
       </tr>
     <% end %>

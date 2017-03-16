@@ -1,4 +1,4 @@
-<%= form_for(component) do |f| %>
+<%= form_for(component, :html => {:class => 'form-horizontal'}) do |f| %>
   <% if component.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(component.errors.count, "error") %> prohibited this component from being saved:</h2>
@@ -11,43 +11,70 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :supplier_id %>
-    <%= f.select :supplier_id, Supplier.all.collect {|s| [s.company_code, s.id]}, include_blank: true, :class => 'custom-select' %>
-<!--    < f.text_field :supplier_id %>-->
-  </div>
+  <fieldset>
 
-  <div class="field">
-    <%= f.label :component_id %>
-    <%= f.text_field :component_id %>
-  </div>
+    <!-- Supplier input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Supplier</label>
+      <div class="col-md-6">
+        <%= f.select(:supplier_id, Supplier.all.collect {|s| [s.company_code, s.id]}, {include_blank: true}, {:class => "form-control"}) %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :component_description %>
-    <%= f.text_field :component_description %>
-  </div>
+    <!-- Company name input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Component ID</label>
+      <div class="col-md-6">
+        <%= f.text_field :component_id, :class => 'form-control input-md'%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :component_type %>
-    <%= f.text_field :component_type %>
-  </div>
+    <!-- Company Address input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Component Description</label>
+      <div class="col-md-6">
+        <%= f.text_field :component_description, :class => 'form-control input-md'%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
-  </div>
+    <!-- Contact Number input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Component Type</label>
+      <div class="col-md-6">
+        <%= f.text_field :component_type, :class => 'form-control input-md' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :cost %>
-    <%= f.text_field :cost %>
-  </div>
+    <!-- Contact Number input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Quantity</label>
+      <div class="col-md-6">
+        <%= f.number_field :quantity, :class => 'form-control input-md' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :retail_price %>
-    <%= f.text_field :retail_price %>
-  </div>
+    <!-- Contact Number input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Cost</label>
+      <div class="col-md-6">
+        <%= f.number_field :cost, :class => 'form-control input-md' %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <!-- Contact Number input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Retail Price</label>
+      <div class="col-md-6">
+        <%= f.number_field :retail_price, :class => 'form-control input-md' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-8"></div>
+      <div class="col-md-1">
+        <%= f.submit 'Add Components', :class => 'btn btn-success'%>
+      </div>
+    </div>
+
+  </fieldset>
 <% end %>

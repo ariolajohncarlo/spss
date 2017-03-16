@@ -1,5 +1,12 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 0.4.0
+* Improved interface for Create Component
+* Updated links on indexes into buttons
+* Disabled routes for PackageComponent
+* Added functionality for Adding Components to package
+* Added user types on navbar
+
 ### Version 0.3.1
 * Improved Interface for New and Edit for Suppliers
 * Added instructions in seed file.

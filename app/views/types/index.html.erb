@@ -7,7 +7,7 @@
     <tr>
       <th>User type</th>
       <th>User description</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,11 +16,8 @@
       <tr>
         <td><%= type.user_type %></td>
         <td><%= type.user_description %></td>
-        <td>
-          <%= link_to 'Show', type %>
-          <%= link_to 'Edit', edit_type_path(type) %>
-          <%= link_to 'Destroy', type, method: :delete, data: { confirm: 'Are you sure?' } %>
-		<button onclick=window.location.href='/types/<%= type.id%>' class="btn btn-info btn-xs">Show</button>
+        <td class="action_area">
+		  <button onclick=window.location.href='/types/<%= type.id%>' class="btn btn-info btn-xs">Show</button>
           <button onclick=window.location.href='/types/<%= type.id%>/edit' class="btn btn-warning btn-xs">Edit</button>
           <button onclick=window.location.href='/types/<%= type.id%>/destroy' class="btn btn-danger btn-xs">Destroy</button>
 
