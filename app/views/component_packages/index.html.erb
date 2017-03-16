@@ -21,6 +21,10 @@
         <td><%= link_to 'Show', component_package %></td>
         <td><%= link_to 'Edit', edit_component_package_path(component_package) %></td>
         <td><%= link_to 'Destroy', component_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<button onclick=window.location.href='/component_packages/<%= component_package.id%>' class="btn btn-info btn-xs">Show</button>
+          <button onclick=window.location.href='/component_packages/<%= component_package.id%>/edit' class="btn btn-warning btn-xs">Edit</button>
+          <button onclick=window.location.href='/component_packages/<%= component_package.id%>/destroy' class="btn btn-danger btn-xs">Destroy</button>
+
       </tr>
     <% end %>
   </tbody>
