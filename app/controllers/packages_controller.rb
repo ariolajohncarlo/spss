@@ -1,6 +1,16 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
 
+  def add
+    @component_package = ComponentPackage.new
+    @component_package.component_id = params[:component_id]
+    @component_package.quantity = params[:quantity]
+    @component_package.package_id = params[:id]
+    
+    @component_package.save
+    
+    redirect_to "/packages/#{params[:id]}"
+  end
   # GET /packages
   # GET /packages.json
   def index

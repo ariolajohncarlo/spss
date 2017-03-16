@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :supplier_id %>
-    <%= f.select :supplier_id, Supplier.all.collect {|s| [s.company_code, s.id]}, include_blank: true %>
+    <%= f.select :supplier_id, Supplier.all.collect {|s| [s.company_code, s.id]}, include_blank: true, :class => 'custom-select' %>
 <!--    < f.text_field :supplier_id %>-->
   </div>
 

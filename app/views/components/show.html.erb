@@ -2,7 +2,7 @@
 
 <p>
   <strong>Supplier:</strong>
-  <%= @component.supplier_id %>
+  <%= Supplier.find(@component.supplier_id).company_name %>
 </p>
 
 <p>

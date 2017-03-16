@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310152835) do
+ActiveRecord::Schema.define(version: 20170316123347) do
 
   create_table "component_packages", force: :cascade do |t|
     t.integer  "component_id"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 20170310152835) do
     t.integer  "quantity"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "component_types", force: :cascade do |t|
+    t.string   "type_description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "components", force: :cascade do |t|
@@ -58,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170310152835) do
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
     t.string   "password"
-    t.integer  "user_type"
+    t.integer  "type_id"
     t.string   "last_name"
     t.string   "first_name"
     t.string   "middle_name"

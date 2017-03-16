@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_type %>
-    <%= f.select :user_type, Type.all.collect {|t| [t.user_description, t.id]}, include_blank: true %>
+    <%= f.label :type_id %>
+    <%= f.select :type_id, Type.all.collect {|t| [t.user_description, t.id]}, include_blank: true %>
   </div>
 
   <div class="field">

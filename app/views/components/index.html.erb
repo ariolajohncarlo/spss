@@ -7,7 +7,7 @@
     <tr>
       <th>Supplier </th>
       <th>Component</th>
-      <th>Component description</th>
+      <th>Component Description</th>
       <th>Component Type</th>
       <th>Quantity</th>
       <th>Cost</th>
@@ -27,8 +27,8 @@
         <td><%= component.component_description %></td>
         <td><%= component.component_type %></td>
         <td><%= component.quantity %></td>
-        <td><%= component.cost %></td>
-        <td><%= component.retail_price %></td>
+        <td class="currency"><%= "%.2f" % component.cost %></td>
+        <td class="currency"><%= "%.2f" % component.retail_price %></td>
         <td>
           <button onclick=window.location.href='/components/<%= component.id%>' class="btn btn-info btn-xs">Show</button>
           <button onclick=window.location.href='/components/<%= component.id%>/edit' class="btn btn-warning btn-xs">Edit</button>

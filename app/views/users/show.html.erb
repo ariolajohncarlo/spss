@@ -17,8 +17,7 @@
 
 <p>
   <strong>User type:</strong>
-  <% utype = Type.find(@user.user_type) %>
-  <%= utype.user_description %>
+  <%= Type.find(@user.type_id).user_description %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
