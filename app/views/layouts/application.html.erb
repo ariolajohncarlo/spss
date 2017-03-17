@@ -18,17 +18,18 @@
           <!--Left Part-->
           <div>
             <ul class="nav navbar-nav">
-              <li><a href="" class="newbold">JRV SOLAR</a></li>
+              <li><a href="" class="newbold"><strong>JRV SOLAR</strong></a></li>
             </ul>
 
             <div>
               
               <ul class="nav navbar-nav">
+                <%if !session[:user_id].nil? then%>
                 
 <!--                <li><a href="index.html" class="newbold">HOME</a></li>-->
 
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle newbold" data-toggle="dropdown">CREATE <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle newbold" data-toggle="dropdown"> <strong>CREATE</strong><span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href='/components/new' class="new">Component</a></li>
                     <li><a href='/component_types/new' class="new">Component Type</a></li>
@@ -40,7 +41,7 @@
                 </li>
 
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle newbold" data-toggle="dropdown">VIEW <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle newbold" data-toggle="dropdown"> <strong>VIEW</strong> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href='/components' class="new">Components</a></li>
                     <li><a href='/component_types' class="new">Component Types</a></li>
@@ -54,17 +55,18 @@
 
               <ul class="nav navbar-nav pull-right">
                 <li>
-                  <a href="edit_profile.php" class="newbold">EDIT PROFILE</a>
+                  <a href="edit_profile.php" class="newbold"> <strong>EDIT PROFILE</strong></a>
                 </li>
                 <li>
                   <p class="navbar-btn" style="padding-top:6; padding-bottom:6; padding-left:20; padding-right:20;">
-                    <button class="btn btn-danger" >
+                    <button onclick=window.location.href='/logout' class="btn btn-danger">
                       <span class="glyphicon glyphicon-log-out"></span>
                       LOGOUT
                     </button>
                   </p>
                 </li>
               </ul>
+              <% end %>
           </div>
         </div>
       </div>

@@ -1,5 +1,8 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 0.5.0
+* Added Login and Logout functionalities
+
 ### Version 0.4.1
 * Added ComponentType
 * Modified Component's component_type to component_type_id to accomodate foreign key

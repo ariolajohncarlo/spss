@@ -1,0 +1,38 @@
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-margin"><%= value %></div>
+  <% end %>
+</div>
+<h1>USER LOGIN</h1>
+<%= form_tag '/login', :class => 'form-horizontal' do%>
+
+<fieldset>
+  
+  <div class=form-group>
+    <label class="col-md-4 control-label">
+      <span class="glyphicon glyphicon-user"></span>
+    </label>
+    <div class="col-md-4">
+      <%= text_field_tag :user_name, "", {:class => 'form-control input-md'} %>
+    </div>
+  </div>
+  
+  <div class=form-group>
+    <label class="col-md-4 control-label">
+      <span class="glyphicon glyphicon-lock"></span>
+    </label>
+    <div class="col-md-4">
+      <%= password_field_tag :password, "", {:class => 'form-control input-md'} %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-md-8 control-label">
+      <%= submit_tag "LOGIN", :class => 'btn btn-success' %>
+    </div>
+  </div>
+  
+</fieldset>
+
+
+<% end %>
