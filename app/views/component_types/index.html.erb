@@ -2,7 +2,7 @@
 
 <h1>Component Types</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Type description</th>
@@ -14,9 +14,11 @@
     <% @component_types.each do |component_type| %>
       <tr>
         <td><%= component_type.type_description %></td>
-        <td><%= link_to 'Show', component_type %></td>
-        <td><%= link_to 'Edit', edit_component_type_path(component_type) %></td>
-        <td><%= link_to 'Destroy', component_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="action_area">
+          <%= link_to 'Show', component_type %>
+          <%= link_to 'Edit', edit_component_type_path(component_type) %>
+          <%= link_to 'Destroy', component_type, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

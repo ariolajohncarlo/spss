@@ -1,39 +1,76 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></tr>
 
-<p>
-  <strong>Supplier:</strong>
-  <%= Supplier.find(@component.supplier_id).company_name %>
-</p>
 
-<p>
-  <strong>Component:</strong>
-  <%= @component.component_id %>
-</p>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <table class="table table-bordered">
 
-<p>
-  <strong>Component description:</strong>
-  <%= @component.component_description %>
-</p>
+    <tr>
+      <td class="name">
+        <strong>Supplier</strong>
+      </td>
+      <td>
+        <%= Supplier.find(@component.supplier_id).company_name %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Component type:</strong>
-  <%= @component.component_type %>
-</p>
+    <tr>
+      <td class="name">
+        <strong>Component</strong>
+      </td>
+      <td>
+        <%= @component.component_id %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @component.quantity %>
-</p>
+    <tr>
+      <td class="name">
+        <strong>Component description</strong>
+      </td>
+      <td>
+        <%= @component.component_description %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @component.cost %>
-</p>
+    <tr>
+      <td class="name">
+        <strong>Component type</strong>
+      </td>
+      <td>
+        <%= @component.component_type_id %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Retail price:</strong>
-  <%= @component.retail_price %>
-</p>
+    <tr>
+      <td class="name">
+        <strong>Quantity</strong>
+      </td>
+      <td>
+        <%= @component.quantity %>
+      </td>
+    </tr>
 
-<%= link_to 'Edit', edit_component_path(@component) %> |
-<%= link_to 'Back', components_path %>
+    <tr>
+      <td class="name">
+        <strong>Cost</strong>
+      </td>
+      <td>
+        <%= number_with_precision(@component.cost, :precision => 2, :delimiter => ',') %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="name">
+        <strong>Retail Price</strong>
+      </td>
+      <td>
+        <%= number_with_precision(@component.retail_price, :precision => 2, :delimiter => ',') %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="col-md-12">
+  <%= link_to 'Edit', edit_component_path(@component) %> |
+  <%= link_to 'Back', components_path %>
+</div>

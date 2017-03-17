@@ -1,5 +1,11 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 0.4.1
+* Added ComponentType
+* Modified Component's component_type to component_type_id to accomodate foreign key
+* Added links to navbar
+* Fixed show.html.erb for Components
+
 ### Version 0.4.0
 * Improved interface for Create Component
 * Updated links on indexes into buttons

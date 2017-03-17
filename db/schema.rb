@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316123347) do
+ActiveRecord::Schema.define(version: 20170317021837) do
 
   create_table "component_packages", force: :cascade do |t|
     t.integer  "component_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170316123347) do
   create_table "components", force: :cascade do |t|
     t.string   "component_id"
     t.string   "component_description"
-    t.string   "component_type"
+    t.integer  "component_type_id"
     t.integer  "quantity"
     t.decimal  "cost"
     t.decimal  "retail_price"

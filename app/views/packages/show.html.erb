@@ -7,11 +7,11 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @package.cost %>
+  <%= number_with_precision(@package.cost, :precision => 2, :delimiter => ',') %>
 </p>
 
 <%= form_tag "add/#{params[:id]}" do%>
-  <%=text_field_tag :component_id%><br>
+  <%=select_tag :component_id, options_for_select(Component.all.collect{|c| [c.component_description, c.id]}, include_blank: true, :class => 'form-control')%><br>
   <%=number_field_tag :quantity%><br>  
   <%=submit_tag 'Add Component'%>
 <%end%>
@@ -26,7 +26,14 @@
   </tr>
   
   <% @package.components.each do |c| %>
-    <tr><td><%= c.component_id %></td><td><%= c.component_description%></td></tr>
+    <tr>
+      <td>
+        <%= c.component_id %>
+      </td>
+      <td>
+        <%= c.component_description%>
+      </td>
+  </tr>
   <%end%>
   
 </table>

@@ -41,7 +41,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="p_number">Component Type</label>
       <div class="col-md-6">
-        <%= f.text_field :component_type, :class => 'form-control input-md' %>
+        <%= f.select(:component_type_id, ComponentType.all.collect {|c| [c.type_description, c.id]}, {include_blank: true}, {:class => "form-control"}) %>
       </div>
     </div>
 

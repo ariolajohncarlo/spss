@@ -15,7 +15,7 @@
     <% @packages.each do |package| %>
       <tr>
         <td><%= package.package_name %></td>
-        <td><%= package.cost %></td>
+        <td class="currency"><%= number_with_precision(package.cost, :precision => 2, :delimiter => ',') %></td>
         <td class="action_area">
 		  <button onclick=window.location.href='/packages/<%= package.id%>' class="btn btn-info btn-xs">Show</button>
           <button onclick=window.location.href='/packages/<%= package.id%>/edit' class="btn btn-warning btn-xs">Edit</button>

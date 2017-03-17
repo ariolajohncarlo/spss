@@ -25,10 +25,10 @@
         </td>
         <td><%= component.component_id %></td>
         <td><%= component.component_description %></td>
-        <td><%= component.component_type %></td>
+        <td><%= ComponentType.find(component.component_type_id).type_description %></td>
         <td><%= component.quantity %></td>
-        <td class="currency"><%= "%.2f" % component.cost %></td>
-        <td class="currency"><%= "%.2f" % component.retail_price %></td>
+        <td class="currency"><%= number_with_precision(component.cost, :precision => 2, :delimiter => ',') %></td>
+        <td class="currency"><%= number_with_precision(component.retail_price, :precision => 2, :delimiter => ',') %></td>
         <td  class="action_area">
           <button onclick=window.location.href='/components/<%= component.id%>' class="btn btn-info btn-xs">Show</button>
           <button onclick=window.location.href='/components/<%= component.id%>/edit' class="btn btn-warning btn-xs">Edit</button>
