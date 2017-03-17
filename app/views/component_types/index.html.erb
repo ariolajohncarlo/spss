@@ -15,10 +15,11 @@
       <tr>
         <td><%= component_type.type_description %></td>
         <td class="action_area">
-          <%= link_to 'Show', component_type %>
-          <%= link_to 'Edit', edit_component_type_path(component_type) %>
-          <%= link_to 'Destroy', component_type, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+     <button onclick=window.location.href='/component_types/<%= component_type.id%>' class="btn btn-info btn-xs">Show</button>
+          <button onclick=window.location.href='/component_types/<%= component_type.id%>/edit' class="btn btn-warning btn-xs">Edit</button>
+          <button onclick=window.location.href='/component_types/<%= component_type.id%>/destroy' class="btn btn-danger btn-xs">Destroy</button>
+   
+	</td>
       </tr>
     <% end %>
   </tbody>

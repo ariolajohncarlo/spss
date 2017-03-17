@@ -1,19 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <table class="table table-bordered">
+
+<tr>
+  <td>
   <strong>Component:</strong>
+  </td>
+  <td>
   <%= @component_package.component_id %>
-</p>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td>
   <strong>Package:</strong>
+  </td>
+  <td>
   <%= @component_package.package_id %>
-</p>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td>
   <strong>Quantity:</strong>
+  </td>
+  <td>
   <%= @component_package.quantity %>
-</p>
+  </td>
+</tr>
+</table>
+</div>
 
+<div class="col-md-12">
 <%= link_to 'Edit', edit_component_package_path(@component_package) %> |
 <%= link_to 'Back', component_packages_path %>
+</div>

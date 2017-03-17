@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<table class="table table-bordered">
+  
+<tr>
+  <td class ="name">
   <strong>Type description:</strong>
+  </td>
+  <td>
   <%= @component_type.type_description %>
-</p>
-
+  </td>
+</tr>
+</table>
+</div>
+<div class="col-md-12">
 <%= link_to 'Edit', edit_component_type_path(@component_type) %> |
 <%= link_to 'Back', component_types_path %>
+</div>

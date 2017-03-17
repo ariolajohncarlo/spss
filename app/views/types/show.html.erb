@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <table class="table table-bordered">
+
+<tr>
+  <td>
   <strong>User type:</strong>
+  </td>
+  <td>
   <%= @type.user_type %>
-</p>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td>
   <strong>User description:</strong>
+  </td>
+  <td>
   <%= @type.user_description %>
-</p>
+  </td>
+</tr>
+</table>
+</div>
 
+<div class="col-md-12">
 <%= link_to 'Edit', edit_type_path(@type) %> |
 <%= link_to 'Back', types_path %>
+</div>

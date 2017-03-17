@@ -1,24 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <table class="table table-bordered">
+  
+<tr>
+  <td class ="name">
   <strong>Company code:</strong>
+  </td>
+  <td>
   <%= @supplier.company_code %>
-</p>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td class = "name">
   <strong>Company name:</strong>
+  </td>
+  <td>
   <%= @supplier.company_name %>
-</p>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td class = "name">
   <strong>Address:</strong>
+  <td>
   <%= @supplier.address %>
-</p>
+  </td>
+</tr>
 
-<p>
+<tr>
+  <td>
   <strong>Contact number:</strong>
+  </td>
   <%= @supplier.contact_number %>
-</p>
+  </td>
+</tr>
+</table>
+</tr>
 
+<div class="col-md-12">
 <%= link_to 'Edit', edit_supplier_path(@supplier) %> |
 <%= link_to 'Back', suppliers_path %>
+</div>
+
+
+
