@@ -1,7 +1,8 @@
-<%= form_for(component_type) do |f| %>
+<%= form_for(component_type, :html => {:class => 'form-horizontal'}) do |f| %>
   <% if component_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(component_type.errors.count, "error") %> prohibited this component_type from being saved:</h2>
+
 
       <ul>
       <% component_type.errors.full_messages.each do |message| %>
@@ -10,13 +11,23 @@
       </ul>
     </div>
   <% end %>
+  
+<fieldset>
 
-  <div class="field">
-    <%= f.label :type_description %>
-    <%= f.text_field :type_description %>
-  </div>
+  <div class="form-group">
+   <label class="col-md-4 control-label" for="p_number">Type Description</label>
+      <div class="col-md-6">
+        <%= f.text_field :type_description, :class => 'form-control input-md'%>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <div class="form-group">
+      <div class="col-md-10 control-label">
+        <%= f.submit 'Create Component Type', :class => 'btn btn-success'%>
+      </div>
+       </div>
+
+   </fieldset>
 <% end %>
+

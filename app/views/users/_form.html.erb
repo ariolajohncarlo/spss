@@ -1,4 +1,4 @@
-<%= form_for(user) do |f| %>
+<%= form_for(user, :html => {:class => 'form-horizontal'}) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,37 +11,59 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_name %>
-    <%= f.text_field :user_name %>
-  </div>
+  <fieldset>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
+<div class="form-group">
+   <label class="col-md-4 control-label" for="p_number">Username</label>
+      <div class="col-md-6">
+        <%= f.text_field :user_name, :class => 'form-control input-md'%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :type_id %>
-    <%= f.select :type_id, Type.all.collect {|t| [t.user_description, t.id]}, include_blank: true %>
-  </div>
+<div class="form-group">
+   <label class="col-md-4 control-label" for="p_number">Password</label>
+      <div class="col-md-6">
+        <%= f.text_field :password, :class => 'form-control input-md'%>
+      </div>
+    </div>
+  
+<div class="form-group">
+      <label class="col-md-4 control-label" for="p_number">Type</label>
+      <div class="col-md-6">
+        <%= f.select(:type_id, Type.all.collect {|t| [t.user_description, t.id]}, {include_blank: true}, {:class => "form-control"}) %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+  <div class="form-group">
+   <label class="col-md-4 control-label" for="p_number">Last Name</label>
+      <div class="col-md-6">
+        <%= f.text_field :last_name, :class => 'form-control input-md'%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :middle_name %>
-    <%= f.text_field :middle_name %>
-  </div>
+    <div class="form-group">
+   <label class="col-md-4 control-label" for="p_number">First Name</label>
+      <div class="col-md-6">
+        <%= f.text_field :first_name, :class => 'form-control input-md'%>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <div class="form-group">
+   <label class="col-md-4 control-label" for="p_number">Middle Name</label>
+      <div class="col-md-6">
+        <%= f.text_field :middle_name, :class => 'form-control input-md'%>
+      </div>
+    </div>
+
+
+  <div class="form-group">
+      <div class="col-md-10 control-label">
+        <%= f.submit 'Create User', :class => 'btn btn-success'%>
+      </div>
+       </div>
+
+   </fieldset>
 <% end %>
+
