@@ -6,7 +6,10 @@ class SessionsController < ApplicationController
   def create
     @user = User.where(user_name: params[:user_name]).first
     
-    if @user.password == params[:password] then
+    if @user.nil? then
+      flash[:danger] = "Incorrect email/password"
+      redirect_to '/login'
+    elsif @user.password == params[:password]
       flash[:success] = "Welcome back!"
       session[:user_id] = @user.id
       redirect_to '/components'

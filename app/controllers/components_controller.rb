@@ -4,21 +4,33 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
   def index
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
     @components = Component.all
   end
 
   # GET /components/1
   # GET /components/1.json
   def show
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
   end
 
   # GET /components/new
   def new
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
     @component = Component.new
   end
 
   # GET /components/1/edit
   def edit
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
   end
 
   # POST /components
@@ -26,38 +38,56 @@ class ComponentsController < ApplicationController
   def create
     @component = Component.new(component_params)
 
-    respond_to do |format|
-      if @component.save
-        format.html { redirect_to @component, notice: 'Component was successfully created.' }
-        format.json { render :show, status: :created, location: @component }
-      else
-        format.html { render :new }
-        format.json { render json: @component.errors, status: :unprocessable_entity }
+    if !session[:user_id].nil? then
+      respond_to do |format|
+        if @component.save
+          format.html { redirect_to @component, notice: 'Component was successfully created.' }
+          format.json { render :show, status: :created, location: @component }
+        else
+          format.html { render :new }
+          format.json { render json: @component.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 
   # PATCH/PUT /components/1
   # PATCH/PUT /components/1.json
   def update
-    respond_to do |format|
-      if @component.update(component_params)
-        format.html { redirect_to @component, notice: 'Component was successfully updated.' }
-        format.json { render :show, status: :ok, location: @component }
-      else
-        format.html { render :edit }
-        format.json { render json: @component.errors, status: :unprocessable_entity }
+    if !session[:user_id].nil? then
+      respond_to do |format|
+        if @component.update(component_params)
+          format.html { redirect_to @component, notice: 'Component was successfully updated.' }
+          format.json { render :show, status: :ok, location: @component }
+        else
+          format.html { render :edit }
+          format.json { render json: @component.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 
   # DELETE /components/1
   # DELETE /components/1.json
   def destroy
-    @component.destroy
-    respond_to do |format|
-      format.html { redirect_to components_url, notice: 'Component was successfully destroyed.' }
-      format.json { head :no_content }
+    if !session[:user_id].nil? then
+      @component.destroy
+      respond_to do |format|
+        format.html { redirect_to components_url, notice: 'Component was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 

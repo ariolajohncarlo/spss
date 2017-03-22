@@ -4,6 +4,9 @@ class ComponentTypesController < ApplicationController
   # GET /component_types
   # GET /component_types.json
   def index
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
     @component_types = ComponentType.all
   end
 
@@ -14,11 +17,17 @@ class ComponentTypesController < ApplicationController
 
   # GET /component_types/new
   def new
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
     @component_type = ComponentType.new
   end
 
   # GET /component_types/1/edit
   def edit
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
   end
 
   # POST /component_types
@@ -26,38 +35,56 @@ class ComponentTypesController < ApplicationController
   def create
     @component_type = ComponentType.new(component_type_params)
 
-    respond_to do |format|
-      if @component_type.save
-        format.html { redirect_to @component_type, notice: 'Component type was successfully created.' }
-        format.json { render :show, status: :created, location: @component_type }
-      else
-        format.html { render :new }
-        format.json { render json: @component_type.errors, status: :unprocessable_entity }
+    if !session[:user_id].nil? then
+      respond_to do |format|
+        if @component_type.save
+          format.html { redirect_to @component_type, notice: 'Component type was successfully created.' }
+          format.json { render :show, status: :created, location: @component_type }
+        else
+          format.html { render :new }
+          format.json { render json: @component_type.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 
   # PATCH/PUT /component_types/1
   # PATCH/PUT /component_types/1.json
   def update
-    respond_to do |format|
-      if @component_type.update(component_type_params)
-        format.html { redirect_to @component_type, notice: 'Component type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @component_type }
-      else
-        format.html { render :edit }
-        format.json { render json: @component_type.errors, status: :unprocessable_entity }
+    if !session[:user_id].nil? then
+      respond_to do |format|
+        if @component_type.update(component_type_params)
+          format.html { redirect_to @component_type, notice: 'Component type was successfully updated.' }
+          format.json { render :show, status: :ok, location: @component_type }
+        else
+          format.html { render :edit }
+          format.json { render json: @component_type.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 
   # DELETE /component_types/1
   # DELETE /component_types/1.json
   def destroy
-	@component_type.destroy
-    respond_to do |format|
-      format.html { redirect_to component_types_url, notice: 'Component type was successfully destroyed.' }
-      format.json { head :no_content }
+    if !session[:user_id].nil? then
+      @component_type.destroy
+      respond_to do |format|
+        format.html { redirect_to component_types_url, notice: 'Component type was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 

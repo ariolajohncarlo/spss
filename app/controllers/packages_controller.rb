@@ -14,60 +14,92 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def index
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
+      
     @packages = Package.all
   end
 
   # GET /packages/1
   # GET /packages/1.json
   def show
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
   end
 
   # GET /packages/new
   def new
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
+      
     @package = Package.new
   end
 
   # GET /packages/1/edit
   def edit
+    if session[:user_id].nil? then
+      redirect_to '/'
+    end
   end
 
   # POST /packages
   # POST /packages.json
   def create
     @package = Package.new(package_params)
-
-    respond_to do |format|
-      if @package.save
-        format.html { redirect_to @package, notice: 'Package was successfully created.' }
-        format.json { render :show, status: :created, location: @package }
-      else
-        format.html { render :new }
-        format.json { render json: @package.errors, status: :unprocessable_entity }
+    
+    if !session[:user_id].nil? then 
+      respond_to do |format|
+        if @package.save
+          format.html { redirect_to @package, notice: 'Package was successfully created.' }
+          format.json { render :show, status: :created, location: @package }
+        else
+          format.html { render :new }
+          format.json { render json: @package.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 
   # PATCH/PUT /packages/1
   # PATCH/PUT /packages/1.json
   def update
-    respond_to do |format|
-      if @package.update(package_params)
-        format.html { redirect_to @package, notice: 'Package was successfully updated.' }
-        format.json { render :show, status: :ok, location: @package }
-      else
-        format.html { render :edit }
-        format.json { render json: @package.errors, status: :unprocessable_entity }
+    if !session[:user_id].nil? then 
+      respond_to do |format|
+        if @package.update(package_params)
+          format.html { redirect_to @package, notice: 'Package was successfully updated.' }
+          format.json { render :show, status: :ok, location: @package }
+        else
+          format.html { render :edit }
+          format.json { render json: @package.errors, status: :unprocessable_entity }
+        end
       end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 
   # DELETE /packages/1
   # DELETE /packages/1.json
   def destroy
-    @package.destroy
-    respond_to do |format|
-      format.html { redirect_to packages_url, notice: 'Package was successfully destroyed.' }
-      format.json { head :no_content }
+    if !session[:user_id].nil? then 
+      @package.destroy
+      respond_to do |format|
+        format.html { redirect_to packages_url, notice: 'Package was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+    
+    if session[:user_id].nil? then
+      redirect_to '/'
     end
   end
 

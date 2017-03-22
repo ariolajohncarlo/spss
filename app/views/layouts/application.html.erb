@@ -35,8 +35,11 @@
                     <li><a href='/component_types/new' class="new">Component Type</a></li>
                     <li><a href='/packages/new' class="new">Package</a></li>
                     <li><a href='/suppliers/new' class="new">Supplier</a></li>
+                    <% utype = Type.find(User.find(session[:user_id]).type_id).user_type %>
+                    <% if utype == "DBA"  || utype == "MAN" then %>
                     <li><a href='/users/new' class="new">User</a></li>
                     <li><a href='/types/new' class="new">User Type</a></li>
+                    <% end %>
                   </ul>
                 </li>
 
@@ -47,15 +50,17 @@
                     <li><a href='/component_types' class="new">Component Types</a></li>
                     <li><a href='/packages' class="new">Packages</a></li>
                     <li><a href='/suppliers' class="new">Suppliers</a></li>
+                    <% if utype == "DBA"  || utype == "MAN" then %>
                     <li><a href='/users' class="new">Users</a></li>
                     <li><a href='/types' class="new">User Types</a></li>
+                    <% end %>
                   </ul>
                 </li>
               </ul>
 
               <ul class="nav navbar-nav pull-right">
                 <li>
-                  <a href="edit_profile.php" class="newbold"> <strong>EDIT PROFILE</strong></a>
+                  <a href="/users/<%=session[:user_id]%>" class="newbold"> <strong>EDIT PROFILE</strong></a>
                 </li>
                 <li>
                   <p class="navbar-btn" style="padding-top:6; padding-bottom:6; padding-left:20; padding-right:20;">
