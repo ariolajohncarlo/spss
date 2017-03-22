@@ -1,46 +1,108 @@
 <p id="notice"><%= notice %></p>
 
-<div class="col-md-4"></div>
-<div class="col-md-4">
-<table class="table table-bordered">
+<div class="row">
+  <div class="col-md-12">
+    
+    <%= form_tag "add/#{params[:id]}", :method => :post, :class => 'form-horizontal' do%>
+    <fieldset>
+      
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="p_number">Component</label>
+        <div class="col-md-7">
+          <%=select_tag :component_id, options_for_select(Component.all.collect{|c| [c.component_description, c.id]}), include_blank: true, class: 'form-control'%>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="p_number">Quantity</label>
+        <div class="col-md-7">
+          <%=number_field_tag :quantity, "", :class => 'form-control input-md' %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-md-10 control-label">
+          <%=submit_tag 'Add Component', :class => 'btn btn-success'%>
+        </div>
+      </div>
+      
+    </fieldset>
+    <%end%>
 
-<p>
-  <strong>Package name:</strong>
-  <%= @package.package_name %>
-</p>
+  </div>
+</div>
 
-<p>
-  <strong>Cost:</strong>
-  <%= number_with_precision(@package.cost, :precision => 2, :delimiter => ',') %>
-</p>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          <strong>Package name:</strong>
+        </td>
+        <td>
+          <%= @package.package_name %>
+        </td>
+      </tr>
 
-<%= form_tag "add/#{params[:id]}" do%>
-  <%=select_tag :component_id, options_for_select(Component.all.collect{|c| [c.component_description, c.id]}, include_blank: true, :class => 'form-control')%><br>
-  <%=number_field_tag :quantity%><br>  
-  <%=submit_tag 'Add Component'%>
-<%end%>
+      <tr>
+        <td>
+          <strong>Cost:</strong>
+        </td>
+        <td>
+        <%= number_with_precision(@package.cost, :precision => 2, :delimiter => ',') %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <strong>Kilowatthour Consumption:</strong>
+        </td>
+        <td>
+          <%= @package.kilowatthour_consumption %>
+        </td>
+      </tr>
+      
+    </table>
 
-
+  </div>
+</div>
 
 <% if @package.components.size > 0 then %>
-<table class="table table-hover">
-  <tr>
-    <th>Component ID</th>
-    <th>Description</th>
-  </tr>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 ">
+    <table class="table table-hover">
+      <tr>
+        <th>Component ID</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
   
-  <% @package.components.each do |c| %>
-    <tr>
-      <td>
-        <%= c.component_id %>
-      </td>
-      <td>
-        <%= c.component_description%>
-      </td>
-  </tr>
-  <%end%>
+      <% ComponentPackage.where("package_id == #{@package.id}").each do |cp|%>
+      <% cid = cp.component_id%>
+      <tr>
+        <td>
+          <%= Component.find(cid).component_id %>
+        </td>
+        <td>
+          <%= Component.find(cid).component_description %>
+        </td>
+        <td>
+          <%= cp.quantity %>
+        </td>
+        <td class="action_area">
+          <button onclick=window.location.href='/packages/<%= @package.id %>/<%= cp.id %>/componentdestroy' class="btn btn-danger btn-xs">
+            Destroy
+          </button>
+        </td>
+      </tr>
+      <%end%>
   
 </table>
+  </div>
+</div>
 
 <% end %>
 <%= link_to 'Edit', edit_package_path(@package) %> |

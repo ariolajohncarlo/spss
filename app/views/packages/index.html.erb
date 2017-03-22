@@ -7,6 +7,7 @@
     <tr>
       <th>Package name</th>
       <th>Cost</th>
+      <th>Kilowatthour Consumption</th>
       <th></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= package.package_name %></td>
         <td class="currency"><%= number_with_precision(package.cost, :precision => 2, :delimiter => ',') %></td>
+        <td class="currency"><%= number_with_precision(package.kilowatthour_consumption, :precision => 2) %></td>
         <td class="action_area">
 		  <button onclick=window.location.href='/packages/<%= package.id%>' class="btn btn-info btn-xs">Show</button>
           <button onclick=window.location.href='/packages/<%= package.id%>/edit' class="btn btn-warning btn-xs">Edit</button>

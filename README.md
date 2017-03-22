@@ -1,5 +1,15 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 1.0.0
+* Fixed bug on login when username is not found
+* Fixed the aesthetics of all the forms
+* Added kilowatthour_consumption column to packages
+* Added functionality for the deletion of components in a package
+* Added validators for all columns when neccessary
+* Added index of the project (suggest page)
+* Users with type employee cannot access user table via navbar
+* Redirects user to login page when not logged in
+
 ### Version 0.5.0
 * Added Login and Logout functionalities
 

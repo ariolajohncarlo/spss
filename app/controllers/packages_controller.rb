@@ -11,6 +11,12 @@ class PackagesController < ApplicationController
     
     redirect_to "/packages/#{params[:id]}"
   end
+  
+  def componentdestroy
+    @component_package = ComponentPackage.find(params[:cid])
+    @component_package.destroy
+    redirect_to "/packages/#{params[:id]}"
+  end
   # GET /packages
   # GET /packages.json
   def index
@@ -111,6 +117,6 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:package_name, :cost)
+      params.require(:package).permit(:package_name, :cost, :kilowatthour_consumption)
     end
 end
