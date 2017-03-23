@@ -57,7 +57,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="p_number">Cost</label>
       <div class="col-md-6">
-        <%= f.number_field :cost, :class => 'form-control input-md' %>
+        <%= f.number_field :cost, :class => 'form-control input-md', :step => 0.01 %>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="p_number">Retail Price</label>
       <div class="col-md-6">
-        <%= f.number_field :retail_price, :class => 'form-control input-md' %>
+        <%= f.number_field :retail_price, :class => 'form-control input-md', :step => 0.01 %>
       </div>
     </div>
 
