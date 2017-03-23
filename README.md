@@ -1,5 +1,9 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
+### Version 1.0.1
+* Added find functionality for external users
+* Added landing page after logging in
+
 ### Version 1.0.0
 * Fixed bug on login when username is not found
 * Fixed the aesthetics of all the forms

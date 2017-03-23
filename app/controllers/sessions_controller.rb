@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     elsif @user.password == params[:password]
       flash[:success] = "Welcome back!"
       session[:user_id] = @user.id
-      redirect_to '/components'
+      redirect_to '/company_index'
     else
       flash[:danger] = "Incorrect email/password"
       redirect_to '/login'

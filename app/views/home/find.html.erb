@@ -1,2 +1,41 @@
-<%= params[:budget] %> <br>
-<%= params[:consumption]%>
+<% budget = params[:budget].to_i %>
+<% consumption = params[:consumption].to_i %>
+
+<% @packages = Package.all.where("cost <= #{budget} OR kilowatthour_consumption >= #{consumption}") %>
+
+
+<div class="row">
+  <div class="col-md-2"></div>
+  
+  <div class="col-md-8">
+    
+    <table class="table table-hover top">
+      <tr>
+        <th>Package Name</th>
+        <th>Kilowatthour Consumption</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    <% @packages.each do |p| %>
+      <tr>
+        <td>
+          <%= p.package_name %>
+        </td>
+
+        <td class="center">
+          <%= number_with_precision(p.kilowatthour_consumption, :precision => 2) %>
+        </td>
+
+        <td class="center">
+          <%= number_with_precision(p.cost, :precision => 2, :delimiter => ',') %> <br>
+        </td>
+        
+        <td class="action_area">
+          <button onclick=window.location.href='/user_package/<%= p.id%>' class="btn btn-info btn-xs">Show</button>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    
+  </div>
+</div>

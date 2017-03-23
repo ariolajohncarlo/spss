@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'home#index'
+  get '/find' => 'home#redirect'
   post '/find' => 'home#find'
+  get '/user_package/:id' => 'home#show'
+  get '/company_index' => 'home#company_index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

@@ -20,8 +20,8 @@ Component.create(component_id: "FUG-80", component_description: "FUG-80 Light Bu
 Component.create(component_id: "RYQR-654", component_description: "RYQR-654 Extension Wire", component_type_id: 4, quantity: 10, cost: 300.00, retail_price: 4500.00, supplier_id: 3)
 Component.create(component_id: "VZXN-4651", component_description: "VZXN-4651 Inverter, Hybrid", component_type_id: 3, quantity: 10, cost: 5000.00, retail_price: 8000.00, supplier_id: 1)
 
-Package.create(package_name: "Rich Kid's Package", cost: 20000)
-Package.create(package_name: "The Budget Package", cost: 5000)
+Package.create(package_name: "Rich Kid's Package", cost: 20000, kilowatthour_consumption: 1000)
+Package.create(package_name: "The Budget Package", cost: 5000, kilowatthour_consumption: 1000)
 
 Type.create(user_type: "DBA", user_description: "Database Administrator")
 Type.create(user_type: "MAN", user_description: "Manager")
@@ -29,6 +29,7 @@ Type.create(user_type: "EMP", user_description: "Employee")
 
 User.create(user_name: "cena_j", password: "cantseeme", type_id: 1, last_name: "Cena", first_name: "John", middle_name: "Invisible")
 User.create(user_name: "trump_d", password: "iheartwalls", type_id: 2, last_name: "Trump", first_name: "Donald", middle_name: "Mr. President")
+User.create(user_name: "rizal_j", password: "touchmenot", type_id: 3, last_name: "Rizal", first_name: "Jose Protacio")
 
 ComponentPackage.create(package_id: 1, component_id: 1, quantity: 3)
 ComponentPackage.create(package_id: 1, component_id: 2, quantity: 5)

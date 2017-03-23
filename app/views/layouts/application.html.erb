@@ -18,7 +18,7 @@
           <!--Left Part-->
           <div>
             <ul class="nav navbar-nav">
-              <li><a href="" class="newbold"><strong>JRV SOLAR</strong></a></li>
+              <li><a href="/" class="newbold"><strong>JRV SOLAR</strong></a></li>
             </ul>
 
             <div>
@@ -26,7 +26,7 @@
               <ul class="nav navbar-nav">
                 <%if !session[:user_id].nil? then%>
                 
-<!--                <li><a href="index.html" class="newbold">HOME</a></li>-->
+                <li><a href="/company_index" class="newbold"> <strong>HOME</strong> </a></li>
 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle newbold" data-toggle="dropdown"> <strong>CREATE</strong><span class="caret"></span></a>
@@ -60,7 +60,7 @@
 
               <ul class="nav navbar-nav pull-right">
                 <li>
-                  <a href="/users/<%=session[:user_id]%>" class="newbold"> <strong>EDIT PROFILE</strong></a>
+<!--                  <a href="/users/<session[:user_id]>" class="newbold"> <strong>EDIT PROFILE</strong></a>-->
                 </li>
                 <li>
                   <p class="navbar-btn" style="padding-top:6; padding-bottom:6; padding-left:20; padding-right:20;">
