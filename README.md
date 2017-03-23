@@ -1,9 +1,16 @@
 # SOLAR POWER SPECIFICATION SYSTEM
 
-### Version 1.0.1
-* Added find functionality for external users
-* Added landing page after logging in
+## INSTALL INSTRUCTIONS
+1. `git clone https://github.com/ariolajohncarlo/spss.git`
+2. Navigate to the directory created
+3. Run `rake db:migrate` to prepare all the tables
+4. Run `rake db:seed` to populate database
 
+## USERNAME:PASSWORD
+1. `cena_j:cantseeme`
+2. `trump_d:iheartwalls`
+
+## VERSION HISTORY
 ### Version 1.0.0
 * Fixed bug on login when username is not found
 * Fixed the aesthetics of all the forms
